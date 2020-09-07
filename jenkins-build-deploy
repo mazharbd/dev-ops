@@ -9,7 +9,10 @@ pipeline{
 	 
 	 stage('Deploy Application'){
 	 steps{
-	 bat 'mvn package deploy -DmuleDeploy'
+	    git 'https://github.com/mazharbd/test-ci-cd.git'
+
+            // Run Maven on a Unix agent.
+        sh "mvn -Dmaven.test.failure.ignore=true clean package"
 	 }
 	 }
 	}
