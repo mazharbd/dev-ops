@@ -3,7 +3,7 @@ pipeline{
 	stages{
 	 stage('Build Application'){
 	 steps{
-	 bat 'mvn clean install'
+	 sh 'mvn clean install'
 	 }
 	 }
 	 
@@ -12,7 +12,7 @@ pipeline{
 	    git 'https://github.com/mazharbd/test-ci-cd.git'
 
             // Run Maven on a Unix agent.
-        sh "mvn -Dmaven.test.failure.ignore=true clean package"
+        sh 'mvn package deploy -DmuleDeploy'
 	 }
 	 }
 	}
