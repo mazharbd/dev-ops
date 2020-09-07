@@ -3,15 +3,16 @@ pipeline{
 	stages{
 	 stage('Build Application'){
 	 steps{
-	 sh 'mvn clean install'
+	 	git 'https://github.com/mazharbd/test-ci-cd.git'
+	 	sh 'mvn clean install'
 	 }
 	 }
 	 
 	 stage('Deploy Application'){
 	 steps{
-	    git 'https://github.com/mazharbd/test-ci-cd.git'
+	    
 
-            // Run Maven on a Unix agent.
+        // Run Maven on a Unix agent.
         sh 'mvn package deploy -DmuleDeploy'
 	 }
 	 }
