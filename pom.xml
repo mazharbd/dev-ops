@@ -71,5 +71,17 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
+    <profiles>
+    	<profile>
+    		<id>cloudhub-deploy</id>
+    		<uri>https://anypoint.mulesoft.com</uri>
+			<muleVersion>4.2.2</muleVersion>
+            <username>mazmule_dev02</username>
+            <password>Msumi!00</password>
+            <applicationName>testing-ci-cd</applicationName>
+            <environment>Sandbox</environment>
+            <workerType>MICRO</workerType>
+            <objectStoreV2>true</objectStoreV2>
+    	</profile>
+    </profiles>
 </project>
