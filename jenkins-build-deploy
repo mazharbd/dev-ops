@@ -68,14 +68,12 @@ pipeline{
                 }
             }
         }
-    }
+
 	 stage('Deploy Application'){
 	 steps{
-	    
-
-        // Run Maven on a Unix agent.
-        sh 'mvn package deploy -DmuleDeploy'
-	 }
-	 }
+        	// Run Maven on a Unix agent.
+       		 sh 'mvn package deploy -DmuleDeploy'
+	      }
+	   }
 	}
 }
