@@ -26,6 +26,14 @@ pipeline{
 	 		sh 'mvn package -DskipTests=true'
 	      }
 	 }
+	 
+	 stage('Deploy Application'){
+	 steps{
+        	// Run Maven on a Unix agent.
+       		 sh 'mvn package deploy -DmuleDeploy'
+	      }
+	   }
+	   
 	 stage("publish to nexus") {
             steps {
                 script {
@@ -69,11 +77,6 @@ pipeline{
             }
         }
 
-	 stage('Deploy Application'){
-	 steps{
-        	// Run Maven on a Unix agent.
-       		 sh 'mvn package deploy -DmuleDeploy'
-	      }
-	   }
+	 
 	}
 }
